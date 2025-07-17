@@ -95,7 +95,28 @@ class GasApiClient
         
         return $result;
     }
+    /**
+ * 指定されたvisitor_idの書類一覧を取得
+ */
+public function getDocuments(string $visitorId): array
+{
+    $cacheKey = "documents_{$visitorId}";
     
+    // キャッシュチェック（書類は比較的変更が少ないので5分キャッシュ）
+    if ($cachedData = $this->getFromCache($cacheKey)) {
+        return $cachedData;
+    }
+    
+    $path = "api/documents/visitor/" . urlencode($visitorId);
+    $result = $this->makeRequest('GET', $path);
+    
+    if ($result['status'] === 'success') {
+        // 成功時のみキャッシュ
+        $this->saveToCache($cacheKey, $result);
+    }
+    
+    return $result;
+}
     /**
      * HTTP リクエストを実行
      */
