@@ -32,9 +32,7 @@ ErrorDocument 500 /reserve/error.php
 </Files>
 
 # line-authディレクトリの保護
-<Directory "line-auth">
-    <Files ~ "\.(log|env)$">
-        Order allow,deny
-        Deny from all
-    </Files>
-</Directory>
+<FilesMatch ".(log|env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
