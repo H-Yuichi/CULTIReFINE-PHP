@@ -241,7 +241,6 @@ if (defined('DEBUG_MODE') && DEBUG_MODE && isset($fullUserInfo)) {
     <div class="ticket_cont_wrap">
       <h2>チケット確認</h2>
       <div id="c_name"><?php echo htmlspecialchars($companyName ?: $displayName); ?><span></span>様</div>
-      <div id="c_type"><?php echo htmlspecialchars($member_type ?: '未設定'); ?></div>
       <div id="c_plan"><?php echo htmlspecialchars($planName ?: 'プラン未設定'); ?></div>
       <a id="open_total">プランに含まれるチケット枚数を確認</a>
       <div class="ticket_cont_available">
