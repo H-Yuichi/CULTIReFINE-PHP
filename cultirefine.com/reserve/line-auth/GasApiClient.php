@@ -99,6 +99,7 @@ class GasApiClient
     /**
  * 指定されたvisitor_idの書類一覧を取得
  */
+	/*
 public function getDocuments(string $visitorId): array
 {
     $cacheKey = "documents_{$visitorId}";
@@ -117,7 +118,7 @@ public function getDocuments(string $visitorId): array
     }
     
     return $result;
-}
+}*/
     /**
      * 書類一覧取得（フォルダ階層対応）
      */

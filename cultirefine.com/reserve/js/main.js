@@ -165,25 +165,25 @@ document.addEventListener('DOMContentLoaded', function() {
     initAddPatientModal();
     
     // Set LINE user from PHP session data
-    if (window.SESSION_USER_DATA) {
-        appState.setLineUser({
-            userId: window.SESSION_USER_DATA.lineUserId,
-            displayName: window.SESSION_USER_DATA.displayName,
-            pictureUrl: window.SESSION_USER_DATA.pictureUrl
-        });
-        
-        // Fetch full user information from API
-        getUserFullInfo().then(function(data) {
-            mapGasDataToAppState(data);
-            updatePatientsList();
-        }).catch(function(error) {
-            console.error('Failed to load user data:', error);
-        });
-    } else {
-        console.error('No session user data found');
-        // Redirect to login
-        window.location.href = '/cultirefine.com/reserve/line-auth/';
-    }
+    //if (window.SESSION_USER_DATA) {
+    //    appState.setLineUser({
+    //        userId: window.SESSION_USER_DATA.lineUserId,
+    //        displayName: window.SESSION_USER_DATA.displayName,
+    //        pictureUrl: window.SESSION_USER_DATA.pictureUrl
+    //    });
+    //    
+    //    // Fetch full user information from API
+    //    getUserFullInfo().then(function(data) {
+    //        mapGasDataToAppState(data);
+    //        updatePatientsList();
+    //    }).catch(function(error) {
+    //        console.error('Failed to load user data:', error);
+    //    });
+    //} else {
+    //    console.error('No session user data found');
+    //    // Redirect to login
+    //    window.location.href = '/reserve/line-auth/';
+    //}
     
     // Force set initial screen to patient-selection
     appState.setScreen('patient-selection');
